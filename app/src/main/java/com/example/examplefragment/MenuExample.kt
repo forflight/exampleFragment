@@ -7,7 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
 import android.util.Log
-import android.view.*
+import android.view.ContextMenu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 
@@ -154,7 +157,7 @@ class MenuExample : AppCompatActivity() {
 	public fun popupMenuOnClick(v: View){
 
 		val popup:PopupMenu = PopupMenu(this, v)
-		val inflater:MenuInflater = popup.menuInflater
+		val inflater: MenuInflater = popup.menuInflater
 		val menu = popup.menu
 
 		inflater.inflate(R.menu.popupmenutestmenu, menu)
