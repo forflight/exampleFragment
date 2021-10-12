@@ -16,7 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 
 class MenuExample : AppCompatActivity() {
 	//
-	// 안드로이드 4.1 이후로는 전역변수를 지향하는 편
+	// 안드로이드 4.1 이후로는 전역변수를 지양하는 편
 	//
 
 	lateinit var button3: Button
@@ -118,36 +118,38 @@ class MenuExample : AppCompatActivity() {
 	}
 
 	public override fun onContextItemSelected(item: MenuItem) : Boolean{
-		if(item.itemId == 1){
-			button3.setTextColor(Color.RED)
-			return  true
-		}
-		else if (item.itemId == 2){
-			button3.setTextColor(Color.GREEN)
-			return  true
-		}
-		else if (item.itemId == 3){
-			button3.setTextColor(Color.BLUE)
-			return  true
-		}
-		else if (item.itemId == 4){
-			Toast.makeText(this, "번역", Toast.LENGTH_SHORT).show()
-			return  true
-		}
-		else if (item.itemId == 5){
-			Toast.makeText(this, "필기인식", Toast.LENGTH_SHORT).show()
-			return  true
-		}
-		else if (item.itemId == 100){
-			Toast.makeText(this, "회전", Toast.LENGTH_SHORT).show()
-			return  true
-		}
-		else if (item.itemId == 101) {
-			Toast.makeText(this, "크기변경", Toast.LENGTH_SHORT).show()
-			return  true
-		}
 
-		return false
+		return when (item.itemId) {
+			1 -> {
+				button3.setTextColor(Color.RED)
+				true
+			}
+			2 -> {
+				button3.setTextColor(Color.GREEN)
+				true
+			}
+			3 -> {
+				button3.setTextColor(Color.BLUE)
+				true
+			}
+			4 -> {
+				Toast.makeText(this, "번역", Toast.LENGTH_SHORT).show()
+				true
+			}
+			5 -> {
+				Toast.makeText(this, "필기인식", Toast.LENGTH_SHORT).show()
+				true
+			}
+			100 -> {
+				Toast.makeText(this, "회전", Toast.LENGTH_SHORT).show()
+				true
+			}
+			101 -> {
+				Toast.makeText(this, "크기변경", Toast.LENGTH_SHORT).show()
+				true
+			}
+			else -> false
+		}
 	}
 
 	//
